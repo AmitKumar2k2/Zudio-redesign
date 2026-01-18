@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+    --meat-brown: #edb730;
+    --rich-black: #010b14;
+    --lotion: #fdfdfd;
+    --sliver-sand: #c4c4c4;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--lotion);
+    font-family: "Jost", sans-serif;
+}
