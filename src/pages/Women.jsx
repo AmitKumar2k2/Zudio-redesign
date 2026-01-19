@@ -44,7 +44,7 @@ const Women = () => {
                 {/* Blazers Section */}
                 <div className="mb-20">
                     <h2 className="text-3xl font-bold text-center mb-10 text-[var(--rich-black)] uppercase tracking-wide">Blazers & Coats</h2>
-                    <div className="flex flex-wrap justify-center gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 justify-items-center">
                         {blazers.map((item, index) => (
                             <ProductCard key={`blazer-${index}`} {...item} />
                         ))}
@@ -54,7 +54,7 @@ const Women = () => {
                 {/* Tops Section */}
                 <div className="mb-20">
                     <h2 className="text-3xl font-bold text-center mb-10 text-[var(--rich-black)] uppercase tracking-wide">Crop Tops & Tees</h2>
-                    <div className="flex flex-wrap justify-center gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 justify-items-center">
                         {tops.map((item, index) => (
                             <ProductCard key={`top-${index}`} {...item} />
                         ))}
@@ -64,7 +64,7 @@ const Women = () => {
                 {/* Sweaters Section */}
                 <div className="mb-10">
                     <h2 className="text-3xl font-bold text-center mb-10 text-[var(--rich-black)] uppercase tracking-wide">Sweaters & Knits</h2>
-                    <div className="flex flex-wrap justify-center gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 justify-items-center">
                         {sweaters.map((item, index) => (
                             <ProductCard key={`sweater-${index}`} {...item} />
                         ))}

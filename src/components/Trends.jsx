@@ -18,15 +18,15 @@ const Trends = () => {
                 <h2>Today Trends</h2>
             </div>
 
-            <div className="w-full flex justify-evenly items-center flex-wrap gap-4">
+            <div className="w-full grid grid-cols-2 justify-items-center gap-4 md:flex md:justify-evenly md:items-center md:flex-wrap">
                 {trends.map((item, index) => (
-                    <div key={index} className="flex flex-col items-center p-4">
-                        <div className="border-2 border-[#c4c4c4] h-[8.9rem] w-[8.9rem] rounded-full flex justify-center items-center">
+                    <div key={index} className="flex flex-col items-center p-2 md:p-4">
+                        <div className="border-2 border-[#c4c4c4] h-[8rem] w-[8rem] rounded-full flex justify-center items-center">
                             <img src={item.img} alt={item.name} className="h-[7rem] w-[7rem] rounded-full object-cover" />
                         </div>
                         <div className="text-center p-4">
                             <p className="text-[#100f0f] text-sm">{item.name}</p>
-                            <p className="text-[1.5rem] font-bold">{item.price}</p>
+                            <p className="text-[1rem] font-bold">{item.price}</p>
                         </div>
                     </div>
                 ))}

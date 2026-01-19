@@ -9,18 +9,24 @@ const ProductCard = ({ img, name, price, id }) => {
     };
 
     return (
-        <div className="w-64 flex flex-col items-center group relative overflow-hidden transition-all hover:shadow-lg rounded-lg">
-            <img src={img} alt={name} className="w-full h-80 object-cover" />
-            <div className="bg-[#010b14] text-white p-3 w-full flex flex-col gap-2 relative z-10">
-                <div className="flex justify-between items-center px-1">
-                    <p className="text-xs tracking-widest uppercase">{name}</p>
-                    <p className="text-lg font-bold">{price}</p>
-                </div>
+        <div className="w-full relative group cursor-pointer">
+            <div className="relative overflow-hidden w-full">
+                <img src={img} alt={name} className="w-full h-auto aspect-[3/4] object-cover" />
                 <button
                     onClick={handleAddToCart}
-                    className="w-full bg-[#edb730] text-black font-semibold py-2 rounded hover:bg-[darkorange] transition-colors mt-1 opacity-100 transform translate-y-0 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 transition-all duration-300">
-                    Add to Cart
+                    className="absolute bottom-2 left-2 bg-white text-black w-8 h-8 flex items-center justify-center rounded-sm hover:bg-gray-200 transition-colors z-10"
+                    aria-label="Add to cart"
+                >
+                    <span className="text-xl font-light leading-none">+</span>
                 </button>
+            </div>
+            <div className="mt-3 text-left w-full pl-1">
+                <div className="flex justify-between items-start">
+                    <p className="text-sm text-[#333] tracking-wide font-normal uppercase truncate pr-2">{name}</p>
+                    {/* Placeholder for color square or other icons if needed */}
+                    <div className="w-3 h-3 bg-black mt-1 shrink-0"></div>
+                </div>
+                <p className="text-sm text-[#333] mt-1">{price}</p>
             </div>
         </div>
     );

@@ -18,13 +18,13 @@ const TopPicks = () => {
                 <h2>Top Picks</h2>
             </div>
 
-            <div className="w-full flex justify-center items-center flex-wrap gap-3 px-4">
+            <div className="w-full grid grid-cols-2 justify-items-center gap-3 px-4 md:flex md:justify-center md:flex-wrap">
                 {products.map((item, index) => (
-                    <div key={index} className="w-36 md:w-48 lg:w-36">
+                    <div key={index} className="w-full md:w-48 lg:w-36">
                         <img src={item.img} alt={item.name} className="w-full h-48 md:h-64 object-cover" />
                         <div className="bg-[#010b14] text-white p-2 w-full -mt-1 relative z-10">
                             <p className="text-xs tracking-widest">{item.name}</p>
-                            <p className="text-right text-lg md:text-xl font-bold">{item.price}</p>
+                            <p className="text-right text-sm  md:text-xl font-bold">{item.price}</p>
                         </div>
                     </div>
                 ))}
