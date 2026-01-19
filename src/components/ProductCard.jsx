@@ -14,7 +14,7 @@ const ProductCard = ({ img, name, price, id }) => {
                 <img src={img} alt={name} className="w-full h-auto aspect-[3/4] object-cover" />
                 <button
                     onClick={handleAddToCart}
-                    className="absolute bottom-2 left-2 bg-white text-black w-8 h-8 flex items-center justify-center rounded-sm hover:bg-gray-200 transition-colors z-10"
+                    className="absolute bottom-2 left-2 bg-white text-black w-8 h-8 flex items-center justify-center rounded-sm hover:bg-black hover:text-white transition-all duration-300 active:scale-75 z-10"
                     aria-label="Add to cart"
                 >
                     <span className="text-xl font-light leading-none">+</span>

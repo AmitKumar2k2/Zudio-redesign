@@ -10,7 +10,7 @@ const SkinCare = () => {
                         <p className="text-[1.2rem] text-left">skin care</p>
                     </div>
                     <div className="bg-white text-black h-12 w-16 mb-4">
-                        <p className="mt-3 text-center text-sm font-bold">$ 577.00</p>
+                        <p className="mt-3 text-center text-sm font-bold">577.00</p>
                     </div>
                 </div>
                 <div>
@@ -25,7 +25,7 @@ const SkinCare = () => {
                         <p className="text-[1.2rem] text-left">Stick</p>
                     </div>
                     <div className="bg-white text-black h-12 w-16 mb-4">
-                        <p className="mt-3 text-center text-sm font-bold">$ 499.00</p>
+                        <p className="mt-3 text-center text-sm font-bold">499.00</p>
                     </div>
                 </div>
                 <div>

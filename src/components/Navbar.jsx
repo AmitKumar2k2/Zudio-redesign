@@ -39,8 +39,8 @@ const Navbar = () => {
                 </div>
                 <input
                     type="text"
-                    placeholder="search for more product"
-                    className="bg-transparent outline-none border-none text-white text-xs w-full p-2 placeholder-gray-400"
+                    placeholder="Search for more product"
+                    className="bg-transparent outline-none border-none text-white text-sm w-full p-2 placeholder-gray-400"
                 />
             </div>
 
