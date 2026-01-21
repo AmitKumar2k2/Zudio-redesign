@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Men = () => {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const shirts = [
         { id: 'm-shirt-1', img: '/mens/shirt/0b248e8cc06d9b4b04b352331bd72fc8.jpg', name: 'CASUAL SHIRT', price: '499' },
         { id: 'm-shirt-2', img: '/mens/shirt/2bd8b8c4dc8de4f4a0cb02f484991af9.jpg', name: 'FORMAL SHIRT', price: '599' },
@@ -49,46 +59,164 @@ const Men = () => {
     ];
 
     return (
-        <>
+        <div className="bg-white">
             <Navbar />
-            <div className="pt-8 pb-16 px-4 bg-gray-50">
-                <div className="max-w-5xl mx-auto">
-                    <h1 className="text-3xl md:text-5xl font-black text-center mb-10 md:mb-16 font-['futura-h'] tracking-wider">MEN'S COLLECTION</h1>
 
-                    {/* Shirts Section */}
-                    <div className="mb-20">
-                        <h2 className="text-3xl font-bold text-center mb-10 text-[var(--rich-black)] uppercase tracking-wide">Shirts</h2>
-                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-8 justify-items-center">
-                            {shirts.map((item, index) => (
-                                <ProductCard key={`shirt-${index}`} {...item} />
-                            ))}
+            {/* HER HERO VIDEO SECTION */}
+            <div className="relative h-[85vh] w-full overflow-hidden bg-gray-900">
+                {/* Desktop Video */}
+                <video
+                    className="absolute top-0 left-0 w-full h-full object-cover hidden md:block"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source src="/mens/desktop.mp4" type="video/mp4" />
+                </video>
+
+                {/* Mobile Video */}
+                <video
+                    className="absolute top-0 left-0 w-full h-full object-cover block md:hidden"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source src="/mens/mobile.mp4" type="video/mp4" />
+                </video>
+
+                <div className="absolute inset-0 z-20 flex flex-col items-center justify-end text-center text-white p-4 pb-12 md:pb-20 bg-gradient-to-t from-black/40 to-transparent">
+                    <p className="text-[10px] md:text-xs font-medium tracking-[0.2em] mb-3 uppercase drop-shadow-md">Purple Label & Polo Ralph Lauren</p>
+                    <h1 className="text-3xl md:text-5xl font-serif mb-6 tracking-wide drop-shadow-lg">FALL 2026 PRESENTATION</h1>
+                    <button className="border border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-2 text-[10px] md:text-xs tracking-widest uppercase backdrop-blur-sm">
+                        Explore Collection
+                    </button>
+                </div>
+            </div>
+
+            {/* SHOP BY CATEGORY */}
+            <div className="py-16 md:py-24 px-4 max-w-[1400px] mx-auto">
+                <h2 className="text-2xl font-serif text-[var(--rich-black)] mb-12 border-b border-gray-200 pb-4">Shop by Category</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="group relative h-[400px] md:h-[600px] overflow-hidden cursor-pointer">
+                        <img src={suits[0].img} alt="Suits" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+                        <div className="absolute bottom-8 left-8 text-white">
+                            <h3 className="text-3xl font-serif mb-2">Suits & Tailoring</h3>
+                            <p className="text-sm tracking-widest uppercase border-b border-white table">Shop Now</p>
                         </div>
                     </div>
-
-                    {/* Jeans Section */}
-                    <div className="mb-20">
-                        <h2 className="text-3xl font-bold text-center mb-10 text-[var(--rich-black)] uppercase tracking-wide">Jeans</h2>
-                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-8 justify-items-center">
-                            {jeans.map((item, index) => (
-                                <ProductCard key={`jeans-${index}`} {...item} />
-                            ))}
+                    <div className="group relative h-[400px] md:h-[600px] overflow-hidden cursor-pointer">
+                        <img src={shirts[0].img} alt="Shirts" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+                        <div className="absolute bottom-8 left-8 text-white">
+                            <h3 className="text-3xl font-serif mb-2">Casual Shirts</h3>
+                            <p className="text-sm tracking-widest uppercase border-b border-white table">Shop Now</p>
                         </div>
                     </div>
-
-                    {/* Suits Section */}
-                    <div className="mb-10">
-                        <h2 className="text-3xl font-bold text-center mb-10 text-[var(--rich-black)] uppercase tracking-wide">Suits & Blazers</h2>
-                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-8 justify-items-center">
-                            {suits.map((item, index) => (
-                                <ProductCard key={`suits-${index}`} {...item} />
-                            ))}
+                    <div className="group relative h-[400px] md:h-[600px] overflow-hidden cursor-pointer">
+                        <img src={jeans[1].img} alt="Denim" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+                        <div className="absolute bottom-8 left-8 text-white">
+                            <h3 className="text-3xl font-serif mb-2">Denim & Jeans</h3>
+                            <p className="text-sm tracking-widest uppercase border-b border-white table">Shop Now</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* HERITAGE ICONS - FULL WIDTH FEATURE */}
+            <div className="bg-[#f4f4f4] py-20 px-4 mb-20">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div className="order-2 md:order-1">
+                        <img src={shirts[5].img} alt="Heritage Icons" className="w-full h-auto shadow-xl" />
+                    </div>
+                    <div className="order-1 md:order-2 text-center md:text-left">
+                        <h4 className="text-sm font-bold tracking-[0.2em] text-gray-500 mb-4 uppercase">The New Standard</h4>
+                        <h2 className="text-4xl md:text-5xl font-serif text-[var(--rich-black)] mb-6">Heritage Icons</h2>
+                        <p className="text-gray-600 mb-8 leading-relaxed max-w-md mx-auto md:mx-0">
+                            Timeless pieces redefined for the modern wardrobe. Experience the perfect blend of tradition and contemporary style with our latest collection.
+                        </p>
+                        <button className="bg-[var(--rich-black)] text-white px-10 py-3 text-sm tracking-widest uppercase hover:opacity-90 transition-opacity">
+                            View Collection
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            {/* MEN'S SHIRTS COLLECTION */}
+            <div className="max-w-[1400px] mx-auto px-4 mb-24">
+                <div className="flex justify-between items-end mb-10">
+                    <h2 className="text-2xl md:text-3xl font-serif text-[var(--rich-black)]">Seasonal Shirts</h2>
+                    <a href="#" className="text-sm font-medium underline underline-offset-4 decoration-1">View All</a>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-12">
+                    {shirts.slice(0, 8).map((item, index) => (
+                        <div key={`shirt-featured-${index}`} className="group">
+                            <ProductCard {...item} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* BANNER WITH CONTENT */}
+            <div className="relative h-[60vh] md:h-[70vh] w-full mb-24 bg-fixed bg-center bg-cover" style={{ backgroundImage: `url(${suits[2].img})` }}>
+                <div className="absolute inset-0 bg-black/40"></div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4 text-center">
+                    <h2 className="text-4xl md:text-6xl font-serif mb-6">Valentine's Day</h2>
+                    <p className="text-lg max-w-2xl mb-8 font-light">Find the perfect gift for him. Explore our curated selection of luxury suits and accessories.</p>
+                    <button className="bg-white text-black px-8 py-3 text-sm tracking-widest uppercase hover:bg-gray-200 transition-colors">
+                        Gift Guide
+                    </button>
+                </div>
+            </div>
+
+            {/* SUITS & FORMAL WEAR */}
+            <div className="max-w-[1400px] mx-auto px-4 mb-24">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-serif text-[var(--rich-black)] mb-4">Suits & Tailoring</h2>
+                    <p className="text-gray-500 max-w-xl mx-auto">Impececcable craftsmanship for life's most important moments.</p>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12">
+                    {suits.slice(0, 8).map((item, index) => (
+                        <ProductCard key={`suit-featured-${index}`} {...item} />
+                    ))}
+                </div>
+            </div>
+
+            {/* MORE TO EXPLORE */}
+            <div className="bg-white border-t border-gray-100 py-20 px-4">
+                <div className="max-w-6xl mx-auto">
+                    <h2 className="text-3xl font-serif mb-12">More to Explore</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="relative h-80 group cursor-pointer overflow-hidden">
+                            <img src={jeans[5].img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="New Arrivals" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                                <h3 className="text-white text-2xl font-serif">New Arrivals</h3>
+                            </div>
+                        </div>
+                        <div className="relative h-80 group cursor-pointer overflow-hidden">
+                            <img src={shirts[7].img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Best Sellers" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                                <h3 className="text-white text-2xl font-serif">Best Sellers</h3>
+                            </div>
+                        </div>
+                        <div className="relative h-80 group cursor-pointer overflow-hidden">
+                            <img src={suits[4].img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="The Candy Store" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                                <h3 className="text-white text-2xl font-serif">The Wedding Shop</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <Footer />
-        </>
+        </div>
     );
 };
 
 export default Men;
+
