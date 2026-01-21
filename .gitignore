@@ -6,19 +6,102 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+*.pid
+*.seed
+*.pid.lock
 
-node_modules
-dist
-dist-ssr
-*.local
+# Dependency directories
+node_modules/
+bower_components/
 
-# Editor directories and files
+# Build & Compiled output
+dist/
+dist-ssr/
+build/
+out/
+coverage/
+.tmp/
+.cache/
+
+# Environment variables (VERY IMPORTANT)
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.test
+
+
+# Framework specific
+
+# Next.js
+.next/
+.next/cache/
+
+# React / Vite
+.vite/
+
+# Nuxt
+.nuxt/
+.output/
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+dump.rdb
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor & IDE files
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+!.vscode/settings.json
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.old
+*.orig
+
+
+
+# Docker
+docker-data/
+.docker/
+docker-compose.override.yml
+
+# Serverless / Cloud
+.serverless/
+.vercel/
+.netlify/
+.firebase/
+.firebaserc
+
+# Certificates & secrets
+*.pem
+*.key
+*.crt
+*.cert
+
+# Misc
+*.local
+*.history
+*.eslintcache
